@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseline Prompt Generator for Intelligent Tutoring System (ITS)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #003366;
+            margin-top: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #003366;
+        }
+
+        select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        textarea {
+            resize: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .disclaimer {
+            margin-top: 10px;
+            font-size: 10px;
+            color: #777;
+            text-align: center;
+        }
+
+        .buffer {
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Baseline-Prompt-Generator für Intelligent Tutoring System</h1>
+    <form id="assistantForm">
+        <label for="identity">Ich bin</label>
+        <select id="identity" name="identity">
+            <option value="Professor/in">Professor/in</option>
+            <option value="Student/in">Student/in</option>
+            <option value="Dozent/in">Dozent/in</option>
+            <!-- Add more as needed -->
+        </select>
+
+        <label for="need">und benötige einen personalisierten Assistenten für</label>
+        <select id="need" name="need">
+            <option value="Diskrete Mathematik & Lineare Algebr (DLMA)">Diskrete Mathematik & Lineare Algebr (DLMA)</option>
+            <option value="Datenschutz Recht in Deutschland">Datenschutz Recht in Deutschland</option>
+            <option value="ISMS nach ISO27001">ISMS nach ISO27001</option>
+            <!-- Add more as needed -->
+        </select>
+
+        <p>Folgende Informationen stelle ich dir bereit, mit denen du arbeiten sollst: (Geben Sie den Modulebeschreibung ein)</p>
+        <textarea id="information" name="information" rows="10" cols="50"></textarea>
+
+        <br><br>
+
+        <button type="button" onclick="copyToClipboard()">Prompt kopieren</button>
+    </form>
+
+    <div class="buffer"></div>
+
+    <footer>
+        &copy; 2024 C. Healey. Alle Rechte vorbehalten.
+    </footer>
+    <div class="disclaimer">
+        Hinweis: Der oben angegebene YouTube-Link ist nur zu Informationszwecken. Wir übernehmen keine Haftung für den Inhalt der verlinkten Seite oder deren Datenschutzrichtlinien.
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            // Get Values from inputs
+            const identity = document.getElementById('identity').value;
+            const need = document.getElementById('need').value;
+            const information = document.getElementById('information').value;
+
+            // Format Data for copy
+            const data = `Ich bin: ${identity}\nund benötige einen personalisierten Assistenten für: ${need}\n\nFolgende Informationen stelle ich dir bereit, mit denen du arbeiten sollst:\n${information}`;
+
+            // Textarea for temporary storage of copied text.
+            const tempTextarea = document.createElement('textarea');
+            tempTextarea.value = data;
+            document.body.appendChild(tempTextarea);
+
+            // Select the text and copy it to the clipboard
+            tempTextarea.select();
+            document.execCommand('copy');
+
+            // Remove the temporary Textarea
+            document.body.removeChild(tempTextarea);
+
+            // Alert the user that the data has been copied
+            alert('Glückwunsch zur Erstellung Ihres Prompts, die Daten wurden in die Zwischenablage kopiert. Sie können diese nun in den ChatGPT, GPT Builder einfügen!! (Weitere Informationen über die Verwendung des GPT-Builders finden Sie unter www.youtube.com.)');
+        }
+    </script>
+</body>
+</html>
