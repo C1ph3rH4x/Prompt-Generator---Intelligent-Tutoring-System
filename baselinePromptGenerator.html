@@ -90,7 +90,6 @@
     <form id="assistantForm">
         <label for="identity">Ich bin</label>
         <select id="identity" name="identity">
-            <option value="Professor/in">Professor/in</option>
             <option value="Student/in">Student/in</option>
             <option value="Dozent/in">Dozent/in</option>
             <!-- Add more as needed -->
@@ -99,12 +98,11 @@
         <label for="need">und benötige einen personalisierten Assistenten für</label>
         <select id="need" name="need">
             <option value="Diskrete Mathematik & Lineare Algebr (DMLA)">Diskrete Mathematik & Lineare Algebr (DMLA)</option>
-            <option value="Datenschutz Recht in Deutschland">Datenschutz Recht in Deutschland</option>
             <option value="ISMS nach ISO27001">ISMS nach ISO27001</option>
             <!-- Add more as needed -->
         </select>
 
-        <p>Folgende Informationen stelle ich dir bereit, mit denen du arbeiten sollst: (Geben Sie den Modulebeschreibung ein)</p>
+        <p>Folgende Informationen stelle ich  bereit, mit denen du arbeiten sollst: (Geben Sie den Modulebeschreibung ein)</p>
         <textarea id="information" name="information" rows="10" cols="50"></textarea>
 
         <br><br>
@@ -144,7 +142,7 @@
             document.body.removeChild(tempTextarea);
 
             // Alert the user that the data has been copied
-            alert('Glückwunsch zur Erstellung Ihres Prompts, die Daten wurden in die Zwischenablage kopiert. Sie können diese nun in den ChatGPT, GPT Builder einfügen!! (Weitere Informationen über die Verwendung des GPT-Builders finden Sie unter www.youtube.com.)');
+            alert('Glückwunsch zur Erstellung Ihres Prompts, die Daten wurden in die Zwischenablage kopiert. Sie können diese nun in den ChatGPT, GPT Builder einfügen!! (Weitere Informationen über die Verwendung des GPT-Builders finden Sie unter https://youtu.be/5Mtdkfp8y58.)');
         }
     </script>
 </body>
